@@ -27,19 +27,30 @@ askAiBtn.addEventListener("click", async () => {
   const protein = document.getElementById("protein").value;
   const budget = document.getElementById("budget").value;
   const diet = document.getElementById("diet").value;
+  const allergies = document.getElementById("allergies").value.split(",").map(a => a.trim()).filter(a => a);
+  const meals = document.getElementById("meals").value;
 
-  aiResponse.innerHTML = "<p>🧠 Analyzing best combo for you...</p>";
+  aiResponse.innerHTML = "🧠 AI is analyzing your plan...";
 
-  // Simulate AI thinking (in real app, you'd call an API here)
-  setTimeout(() => {
-    const bestItem = willysFood.sort((a, b) => b.proteinPerKrona - a.proteinPerKrona)[0];
-    aiResponse.innerHTML = `
-      <p><strong>🤖 AI Suggestion:</strong></p>
-      <p>For <strong>${protein}g protein</strong> under <strong>${budget} kr</strong>, I recommend:</p>
-      <p>👉 <strong>${bestItem.name}</strong> — ${bestItem.proteinPerKrona.toFixed(2)}g protein per kr!</p>
-      <p>💡 Pro Tip: Pair with eggs or oil to hit calories without carbs.</p>
-    `;
-  }, 800);
+  try {
+    const response = await fetch("/api/recommend", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        protein: parseFloat(protein),
+        budget: parseFloat(budget),
+        diet,
+        allergies,
+        meals,
+        foodData: willysFood
+      })
+    });
+
+    const data = await response.json();
+    aiResponse.innerHTML = `<pre>${data.plan}</pre>`;
+  } catch (error) {
+    aiResponse.innerHTML = `<p>❌ AI service unavailable. Try again later.</p>`;
+  }
 });
 
 // Generate Meal Plan
