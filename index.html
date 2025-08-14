@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🍗 Willys Diet Recommender</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Willys Diet Recommender</h1>
+      <p>Get high-protein, low-cost meals from Willys — optimized for your goals</p>
+      <button id="darkModeToggle">🌙 Dark Mode</button>
+    </header>
+
+    <form id="goalForm">
+      <label>Target Protein (g): 
+        <input type="number" id="protein" value="120" required />
+      </label>
+      <label>Max Budget (kr/day): 
+        <input type="number" id="budget" value="80" required />
+      </label>
+      <label>Diet Type:
+        <select id="diet">
+          <option value="high-protein">High Protein</option>
+          <option value="low-carb">Low Carb</option>
+          <option value="budget">Budget Friendly</option>
+        </select>
+      </label>
+      <label>Allergies (e.g. fish, dairy): 
+        <input type="text" id="allergies" placeholder="fish, dairy" />
+      </label>
+      <label>Meals per day:
+        <select id="meals">
+          <option value="2">2 meals + 1 snack</option>
+          <option value="3">3 meals</option>
+        </select>
+      </label>
+      <button type="submit">Generate Plan</button>
+      <button type="button" id="askAiBtn">🤖 Ask AI for Best Plan</button>
+    </form>
+
+    <div id="aiResponse" class="ai-box"></div>
+    <div id="results"></div>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

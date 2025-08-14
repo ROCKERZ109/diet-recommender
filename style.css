@@ -1,0 +1,157 @@
+/* Reset & Base */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f4f6f9;
+  color: #2d3748;
+  line-height: 1.6;
+  transition: background 0.3s, color 0.3s;
+  margin: 0;
+  padding: 20px;
+}
+
+body.dark {
+  background: #1a202c;
+  color: #e2e8f0;
+}
+
+.container {
+  max-width: 700px;
+  margin: 20px auto;
+  padding: 25px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  transition: background 0.3s;
+}
+
+body.dark .container {
+  background: #2d3748;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+header h1 {
+  color: #2c5282;
+  margin: 0;
+}
+
+body.dark header h1 {
+  color: #63b3ed;
+}
+
+#darkModeToggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: #4a5568;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+body.dark #darkModeToggle {
+  background: #e2e8f0;
+  color: #2d3748;
+}
+
+/* Form */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+label {
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  font-size: 15px;
+}
+
+input, select, button {
+  padding: 10px;
+  margin-top: 6px;
+  border: 1px solid #cbd5e0;
+  border-radius: 6px;
+  font-size: 15px;
+}
+
+body.dark input, 
+body.dark select, 
+body.dark button {
+  background: #4a5568;
+  border-color: #718096;
+  color: #e2e8f0;
+}
+
+button {
+  background: #2c5282;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  transition: background 0.2s;
+}
+
+button:hover {
+  background: #1a365d;
+}
+
+#askAiBtn {
+  background: #4299e1;
+}
+
+body.dark #askAiBtn {
+  background: #3182ce;
+}
+
+/* Results */
+#results, #aiResponse {
+  margin-top: 20px;
+  padding: 18px;
+  border-radius: 8px;
+  border: 1px solid #bee3f8;
+  background: #ebf8ff;
+}
+
+body.dark #results, 
+body.dark #aiResponse {
+  background: #2d3748;
+  border-color: #4a5568;
+  color: #e2e8f0;
+}
+
+#aiResponse {
+  background: #f0fff4;
+  border-color: #9ae6b4;
+}
+
+body.dark #aiResponse {
+  background: #1a362d;
+  border-color: #38a169;
+}
+
+#aiResponse p {
+  margin: 8px 0;
+  font-style: italic;
+}
+
+ul {
+  padding-left: 20px;
+}
+
+li {
+  margin: 6px 0;
+}
